@@ -7,10 +7,10 @@ cache: packages
 os:
   - linux
 
-apt_packages:
-    - libmetis-dev
-    - libopenblas-dev
-    - liblapack-dev
+# apt_packages:
+#     - libmetis-dev
+#     - libopenblas-dev
+#     - liblapack-dev
 
 jobs:
   include:
