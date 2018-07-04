@@ -11,8 +11,8 @@ fi
 # git clone -b develop https://github.com/sadatnfs/Matrix.git
 
 ## Tar it
-ls -altr
-tar czf Matrix_2.tar.gz Matrix
+# ls -altr
+tar czf Matrix_2.tar.gz ../Matrix
 
 
 ## Install 

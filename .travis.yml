@@ -17,11 +17,6 @@ jobs:
     - stage: Clone and install the package
       r: 3.5
       install: true
-      script: 
-        - ./bin/install_dependencies.sh
-
-    - stage: Clone and install the package
-      r: 3.5
       script:
         - ./bin/clone_and_install_pack.sh
 
