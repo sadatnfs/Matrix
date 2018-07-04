@@ -8,7 +8,7 @@ fi
 
 
 ## Clone
-git clone https://github.com/sadatnfs/Matrix.git
+git clone -b develop https://github.com/sadatnfs/Matrix.git
 
 ## Tar it
 tar czf Matrix_2.tar.gz Matrix
