@@ -14,7 +14,6 @@ apt_packages:
 
 jobs:
   include:
-
     - stage: Install package dependencies
       r: 3.5
       install:
