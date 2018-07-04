@@ -1,0 +1,39 @@
+language: r
+
+sudo: required
+
+cache: packages
+
+os:
+  - linux
+
+
+apt_packages:
+    - libmetis-dev
+    - libopenblas-dev
+    - liblapack-dev
+
+jobs:
+  include:
+
+    - stage: Install package dependencies
+      r: 3.5
+      install:
+        - ./bin/install_dependencies.sh
+      script: true
+
+
+    - stage: Clone and install the package
+      r: 3.5
+      install: true
+      script:
+        - ./bin/install_and_check.sh
+
+
+
+
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
