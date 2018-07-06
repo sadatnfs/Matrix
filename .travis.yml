@@ -18,7 +18,7 @@ jobs:
       r: 3.5
       install: true
       script:
-        - ./bin/clone_and_install_pack.sh
+        - bin/clone_and_install_pack.sh
 
 
 notifications:
