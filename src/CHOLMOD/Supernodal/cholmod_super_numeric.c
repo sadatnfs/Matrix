@@ -183,8 +183,8 @@ int CHOLMOD(super_numeric)
     ASSERT (nsuper >= 0 && maxcsize > 0) ;
 
     /* w = 2*n + 4*nsuper */
-    w = CHOLMOD(mult_size_t) (n, 2, &ok) ;
-    t = CHOLMOD(mult_size_t) (nsuper, 4, &ok) ;
+    w = CHOLMOD(mult_size_t) (n, 4, &ok) ;
+    t = CHOLMOD(mult_size_t) (nsuper, 6, &ok) ;
     w = CHOLMOD(add_size_t) (w, t, &ok) ;
     if (!ok)
     {
