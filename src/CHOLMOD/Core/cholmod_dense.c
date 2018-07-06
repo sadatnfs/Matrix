@@ -99,12 +99,33 @@ cholmod_dense *CHOLMOD(allocate_dense)
     /* nzmax = MAX (1, d*ncol) ; */
     nzmax = CHOLMOD(mult_size_t) (d, ncol, &ok) ;
     nzmax = MAX (1, nzmax) ;
-
-    if (!ok || nrow > Int_max || ncol > Int_max || nzmax > Int_max)
+    if (!ok)
     {
-	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
-	return (NULL) ;
-    }
+    ERROR (CHOLMOD_TOO_LARGE, "problem too large OK OKOK OKOK") ;
+    return (NULL) ;
+    } 
+    if ( nrow > Int_max )
+    {
+    ERROR (CHOLMOD_TOO_LARGE, "problem too large nrow > Int_max") ;
+    return (NULL) ;
+    } 
+    if ( ncol > Int_max )
+    {
+    ERROR (CHOLMOD_TOO_LARGE, "problem too large ncol > Int_max") ;
+    return (NULL) ;
+    } 
+    if (nzmax > Int_max)
+    {
+    ERROR (CHOLMOD_TOO_LARGE, "problem too large nzmax > Int_max") ;
+    return (NULL) ;
+    } 
+
+
+ //    if (!ok || nrow > Int_max || ncol > Int_max || nzmax > Int_max)
+ //    {
+	// ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
+	// return (NULL) ;
+ //    }
     Common->status = CHOLMOD_OK ;
 
     /* ---------------------------------------------------------------------- */
