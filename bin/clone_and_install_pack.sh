@@ -17,3 +17,6 @@ tar czf Matrix_2.tar.gz ../Matrix
 
 ## Install 
 R CMD INSTALL Matrix_2.tar.gz
+
+## Install another random dependency
+R -e "install.packages('data.table')"
