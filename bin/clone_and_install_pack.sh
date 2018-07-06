@@ -12,7 +12,8 @@ fi
 
 ## Tar it
 ls -altr
-tar czf Matrix_2.tar.gz ../Matrix
+cd ..
+tar czf Matrix_2.tar.gz Matrix
 
 
 ## Install 
