@@ -16,13 +16,10 @@ jobs:
   include:
     - stage: Clone and install the package
       r: 3.5
-      install: 
+      script: 
         - bin/clone_and_install_pack.sh
-      script: true
-
     - stage: Run tests
       r: 3.5
-      install: true
       script:
         - bin/run_tests.sh
 
