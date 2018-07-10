@@ -553,16 +553,17 @@ int CHOLMOD(super_symbolic2)
             xxsize += ((double) nscol) * ((double) nsrow) ;
         }
 	// if (ssize < 0 || (for_cholesky && xxsize > Int_max))
-	// {
-	//      Int overflow, clear workspace and return.
- //               QR factorization will not use xxsize, so that error is ignored.
- //               For Cholesky factorization, however, memory of space xxsize
- //               will be allocated, so this is a failure.  Both QR and Cholesky
- //               fail if ssize overflows. 
-	//     ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
-	//     FREE_WORKSPACE ;
-	//     return (FALSE) ;
-	// }
+    if (ssize < 0)
+	{
+	     // Int overflow, clear workspace and return.
+      //          QR factorization will not use xxsize, so that error is ignored.
+      //          For Cholesky factorization, however, memory of space xxsize
+      //          will be allocated, so this is a failure.  Both QR and Cholesky
+      //          fail if ssize overflows. 
+	    ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
+	    FREE_WORKSPACE ;
+	    return (FALSE) ;
+	}
 	ASSERT (ssize > 0) ;
         ASSERT (IMPLIES (for_cholesky, xsize > 0)) ;
     }
