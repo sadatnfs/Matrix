@@ -186,11 +186,11 @@ int CHOLMOD(super_numeric)
     w = CHOLMOD(mult_size_t) (n, 10, &ok) ;
     t = CHOLMOD(mult_size_t) (nsuper, 12, &ok) ;
     w = CHOLMOD(add_size_t) (w, t, &ok) ;
-    if (!ok)
-    {
-	ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
-	return (FALSE) ;
-    }
+ //    if (!ok)
+ //    {
+	// ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
+	// return (FALSE) ;
+ //    }
 
     CHOLMOD(allocate_work) (n, w, 0, Common) ;
     if (Common->status < CHOLMOD_OK)
