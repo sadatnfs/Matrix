@@ -14,16 +14,16 @@
 
 #include "cholmod_template.h"
 
-static void TEMPLATE (cholmod_super_lsolve)
+static void TEMPLATE (cholmod_l_super_lsolve)
 (
     /* ---- input ---- */
-    cholmod_factor *L,	/* factor to use for the forward solve */
+    cholmod_l_factor *L,	/* factor to use for the forward solve */
     /* ---- output ---- */
-    cholmod_dense *X,	/* b on input, solution to Lx=b on output */
+    cholmod_l_dense *X,	/* b on input, solution to Lx=b on output */
     /* ---- workspace ---- */
-    cholmod_dense *E,	/* workspace of size nrhs*(L->maxesize) */
+    cholmod_l_dense *E,	/* workspace of size nrhs*(L->maxesize) */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double *Lx, *Xx, *Ex ;
@@ -222,16 +222,16 @@ static void TEMPLATE (cholmod_super_lsolve)
 }
 
 
-static void TEMPLATE (cholmod_super_ltsolve)
+static void TEMPLATE (cholmod_l_super_ltsolve)
 (
     /* ---- input ---- */
-    cholmod_factor *L,	/* factor to use for the forward solve */
+    cholmod_l_factor *L,	/* factor to use for the forward solve */
     /* ---- output ---- */
-    cholmod_dense *X,	/* b on input, solution to Lx=b on output */
+    cholmod_l_dense *X,	/* b on input, solution to Lx=b on output */
     /* ---- workspace ---- */
-    cholmod_dense *E,	/* workspace of size nrhs*(L->maxesize) */
+    cholmod_l_dense *E,	/* workspace of size nrhs*(L->maxesize) */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double *Lx, *Xx, *Ex ;

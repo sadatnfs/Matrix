@@ -157,14 +157,14 @@ int CHOLMOD(super_symbolic2)
 (
     /* ---- input ---- */
     int for_cholesky,   /* Cholesky if TRUE, QR if FALSE */
-    cholmod_sparse *A,	/* matrix to analyze */
-    cholmod_sparse *F,	/* F = A' or A(:,f)' */
+    cholmod_l_sparse *A,	/* matrix to analyze */
+    cholmod_l_sparse *F,	/* F = A' or A(:,f)' */
     Int *Parent,	/* elimination tree */
     /* ---- in/out --- */
-    cholmod_factor *L,	/* simplicial symbolic on input,
+    cholmod_l_factor *L,	/* simplicial symbolic on input,
 			 * supernodal symbolic on output */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double zrelax0, zrelax1, zrelax2, xxsize ;
@@ -594,7 +594,7 @@ int CHOLMOD(super_symbolic2)
     Lpi = L->pi ;
     Lpx = L->px ;
     Ls = L->s ;
-    Ls [0] = 0 ;    /* flag for cholmod_check_factor; supernodes are defined */
+    Ls [0] = 0 ;    /* flag for cholmod_l_check_factor; supernodes are defined */
     Lpx [0] = for_cholesky ? 0 : 123456 ;   /* magic number for sparse QR */
     Lsuper = L->super ;
 
@@ -831,11 +831,11 @@ int CHOLMOD(super_symbolic2)
 }
 
 /* ========================================================================== */
-/* === cholmod_super_symbolic =============================================== */
+/* === cholmod_l_super_symbolic =============================================== */
 /* ========================================================================== */
 
 /* Analyzes A, AA', or A(:,f)*A(:,f)' in preparation for a supernodal numeric
- * factorization.  The user need not call this directly; cholmod_analyze is
+ * factorization.  The user need not call this directly; cholmod_l_analyze is
  * a "simple" wrapper for this routine.
  * 
  * This function does all the analysis for a supernodal Cholesky factorization.
@@ -848,14 +848,14 @@ int CHOLMOD(super_symbolic2)
 int CHOLMOD(super_symbolic)
 (
     /* ---- input ---- */
-    cholmod_sparse *A,	/* matrix to analyze */
-    cholmod_sparse *F,	/* F = A' or A(:,f)' */
+    cholmod_l_sparse *A,	/* matrix to analyze */
+    cholmod_l_sparse *F,	/* F = A' or A(:,f)' */
     Int *Parent,	/* elimination tree */
     /* ---- in/out --- */
-    cholmod_factor *L,	/* simplicial symbolic on input,
+    cholmod_l_factor *L,	/* simplicial symbolic on input,
 			 * supernodal symbolic on output */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     return (CHOLMOD(super_symbolic2) (TRUE, A, F, Parent, L, Common)) ;

@@ -41,7 +41,7 @@ void TEMPLATE (CHOLMOD (gpu_init))
 (
     void *Cwork,
     Int maxSize,
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     Int i ;
@@ -149,7 +149,7 @@ void TEMPLATE (CHOLMOD (gpu_init))
 
 void TEMPLATE (CHOLMOD (gpu_end))
 (
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     int i;
@@ -236,7 +236,7 @@ int TEMPLATE (CHOLMOD (gpu_updateC))
                         /* L2 starts at Lx + L_ENTRY*(pdx1 + ndrow1) */
     double *Lx,
     double *C,
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double *devPtrLx, *devPtrC ;
@@ -451,7 +451,7 @@ int TEMPLATE (CHOLMOD (gpu_updateC))
 
 void TEMPLATE (CHOLMOD (gpu_syncSyrk))
 (
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     if (Common->SyrkUsed)
@@ -481,7 +481,7 @@ void TEMPLATE (CHOLMOD (gpu_syncSyrk))
 
 void TEMPLATE (CHOLMOD (gpu_syncGemm))
 (
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     if (Common->GemmUsed)
@@ -519,7 +519,7 @@ int TEMPLATE (CHOLMOD (gpu_lower_potrf))
     Int psx,        /* S is located at Lx + L_Entry*psx */
     double *Lx,     /* contains S; overwritten with Cholesky factor */
     Int *info,      /* BLAS info return value */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double *devPtrA, *devPtrB, *A ;
@@ -864,7 +864,7 @@ int TEMPLATE (CHOLMOD (gpu_triangular_solve))
     Int nsrow,      /* leading dimension of L1, L2, and S2 */
     Int psx,        /* L1 is at Lx+L_ENTRY*psx; L2 at Lx+L_ENTRY*(psx+nscol2)*/
     double *Lx,     /* holds L1, L2, and S2 */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double *devPtrA, *devPtrB ;

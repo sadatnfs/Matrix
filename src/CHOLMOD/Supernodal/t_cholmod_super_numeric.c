@@ -93,18 +93,18 @@
 /* This function returns FALSE only if integer overflow occurs in the BLAS.
  * It returns TRUE otherwise whether or not the matrix is positive definite. */
 
-static int TEMPLATE (cholmod_super_numeric)
+static int TEMPLATE (cholmod_l_super_numeric)
 (
     /* ---- input ---- */
-    cholmod_sparse *A,	/* matrix to factorize */
-    cholmod_sparse *F,	/* F = A' or A(:,f)' */
+    cholmod_l_sparse *A,	/* matrix to factorize */
+    cholmod_l_sparse *F,	/* F = A' or A(:,f)' */
     double beta [2],	/* beta*I is added to diagonal of matrix to factorize */
     /* ---- in/out --- */
-    cholmod_factor *L,	/* factorization */
+    cholmod_l_factor *L,	/* factorization */
     /* -- workspace -- */
-    cholmod_dense *Cwork,	/* size (L->maxcsize)-by-1 */
+    cholmod_l_dense *Cwork,	/* size (L->maxcsize)-by-1 */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     double one [2], zero [2], fjk [2], tstart ;

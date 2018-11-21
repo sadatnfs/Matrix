@@ -45,13 +45,13 @@
 int CHOLMOD(super_lsolve)   /* TRUE if OK, FALSE if BLAS overflow occured */
 (
     /* ---- input ---- */
-    cholmod_factor *L,	/* factor to use for the forward solve */
+    cholmod_l_factor *L,	/* factor to use for the forward solve */
     /* ---- output ---- */
-    cholmod_dense *X,	/* b on input, solution to Lx=b on output */
+    cholmod_l_dense *X,	/* b on input, solution to Lx=b on output */
     /* ---- workspace ---- */
-    cholmod_dense *E,	/* workspace of size nrhs*(L->maxesize) */
+    cholmod_l_dense *E,	/* workspace of size nrhs*(L->maxesize) */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     /* ---------------------------------------------------------------------- */
@@ -106,11 +106,11 @@ int CHOLMOD(super_lsolve)   /* TRUE if OK, FALSE if BLAS overflow occured */
     {
 
 	case CHOLMOD_REAL:
-	    r_cholmod_super_lsolve (L, X, E, Common) ;
+	    r_cholmod_l_super_lsolve (L, X, E, Common) ;
 	    break ;
 
 	case CHOLMOD_COMPLEX:
-	    c_cholmod_super_lsolve (L, X, E, Common) ;
+	    c_cholmod_l_super_lsolve (L, X, E, Common) ;
 	    break ;
     }
 
@@ -138,13 +138,13 @@ int CHOLMOD(super_lsolve)   /* TRUE if OK, FALSE if BLAS overflow occured */
 int CHOLMOD(super_ltsolve)  /* TRUE if OK, FALSE if BLAS overflow occured */
 (
     /* ---- input ---- */
-    cholmod_factor *L,	/* factor to use for the backsolve */
+    cholmod_l_factor *L,	/* factor to use for the backsolve */
     /* ---- output ---- */
-    cholmod_dense *X,	/* b on input, solution to L'x=b on output */
+    cholmod_l_dense *X,	/* b on input, solution to L'x=b on output */
     /* ---- workspace ---- */
-    cholmod_dense *E,	/* workspace of size nrhs*(L->maxesize) */
+    cholmod_l_dense *E,	/* workspace of size nrhs*(L->maxesize) */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
     /* ---------------------------------------------------------------------- */
@@ -199,11 +199,11 @@ int CHOLMOD(super_ltsolve)  /* TRUE if OK, FALSE if BLAS overflow occured */
     {
 
 	case CHOLMOD_REAL:
-	    r_cholmod_super_ltsolve (L, X, E, Common) ;
+	    r_cholmod_l_super_ltsolve (L, X, E, Common) ;
 	    break ;
 
 	case CHOLMOD_COMPLEX:
-	    c_cholmod_super_ltsolve (L, X, E, Common) ;
+	    c_cholmod_l_super_ltsolve (L, X, E, Common) ;
 	    break ;
     }
 

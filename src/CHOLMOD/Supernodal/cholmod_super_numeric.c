@@ -93,16 +93,16 @@
 int CHOLMOD(super_numeric)
 (
     /* ---- input ---- */
-    cholmod_sparse *A,	/* matrix to factorize */
-    cholmod_sparse *F,	/* F = A' or A(:,f)' */
+    cholmod_l_sparse *A,	/* matrix to factorize */
+    cholmod_l_sparse *F,	/* F = A' or A(:,f)' */
     double beta [2],	/* beta*I is added to diagonal of matrix to factorize */
     /* ---- in/out --- */
-    cholmod_factor *L,	/* factorization */
+    cholmod_l_factor *L,	/* factorization */
     /* --------------- */
-    cholmod_common *Common
+    cholmod_l_common *Common
 )
 {
-    cholmod_dense *C ;
+    cholmod_l_dense *C ;
     Int *Super, *Map, *SuperMap ;
     size_t maxcsize ;
     Int nsuper, n, i, k, s, stype, nrow ;
@@ -183,8 +183,8 @@ int CHOLMOD(super_numeric)
     ASSERT (nsuper >= 0 && maxcsize > 0) ;
 
     /* w = 4*n + 6*nsuper */
-    w = CHOLMOD(mult_size_t) (n, 10, &ok) ;
-    t = CHOLMOD(mult_size_t) (nsuper, 12, &ok) ;
+    w = CHOLMOD(mult_size_t) (n, 2, &ok) ;
+    t = CHOLMOD(mult_size_t) (nsuper, 4, &ok) ;
     w = CHOLMOD(add_size_t) (w, t, &ok) ;
  //    if (!ok)
  //    {
@@ -277,16 +277,16 @@ int CHOLMOD(super_numeric)
     switch (A->xtype)
     {
 	case CHOLMOD_REAL:
-	    ok = r_cholmod_super_numeric (A, F, beta, L, C, Common) ;
+	    ok = r_cholmod_l_super_numeric (A, F, beta, L, C, Common) ;
 	    break ;
 
 	case CHOLMOD_COMPLEX:
-	    ok = c_cholmod_super_numeric (A, F, beta, L, C, Common) ;
+	    ok = c_cholmod_l_super_numeric (A, F, beta, L, C, Common) ;
 	    break ;
 
 	case CHOLMOD_ZOMPLEX:
 	    /* This operates on complex L, not zomplex */
-	    ok = z_cholmod_super_numeric (A, F, beta, L, C, Common) ;
+	    ok = z_cholmod_l_super_numeric (A, F, beta, L, C, Common) ;
 	    break ;
     }
 
