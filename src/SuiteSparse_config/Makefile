@@ -4,7 +4,7 @@
 
 VERSION = 4.2.1
 
-PKG_CPPFLAGS = -DNTIMER
+PKG_CPPFLAGS = -DNTIMER -DDLONG
 
 LIB = ../SuiteSparse_config.a
 
