@@ -1,4 +1,4 @@
-PKG_CPPFLAGS = -I../Include -I../../SuiteSparse_config -DDLONG
+PKG_CPPFLAGS = -I../Include -I../../SuiteSparse_config
 
 LIB = ../../AMD.a
 
