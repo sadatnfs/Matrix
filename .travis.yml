@@ -14,14 +14,12 @@ os:
 
 jobs:
   include:
-    - stage: Clone and install the package
+    - stage: Install and run tests
       r: 3.5
       script: 
         - bin/clone_and_install_pack.sh
-    - stage: Run tests
-      r: 3.5
-      script:
         - bin/run_tests.sh
+        
 
 
 notifications:

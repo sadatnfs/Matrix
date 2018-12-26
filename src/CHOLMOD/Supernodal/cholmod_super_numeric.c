@@ -182,15 +182,15 @@ int CHOLMOD(super_numeric)
     PRINT1 (("nsuper "ID" maxcsize %g\n", nsuper, (double) maxcsize)) ;
     ASSERT (nsuper >= 0 && maxcsize > 0) ;
 
-    /* w = 4*n + 6*nsuper */
+    /* w = 2*n + 4*nsuper */
     w = CHOLMOD(mult_size_t) (n, 2, &ok) ;
     t = CHOLMOD(mult_size_t) (nsuper, 4, &ok) ;
     w = CHOLMOD(add_size_t) (w, t, &ok) ;
- //    if (!ok)
- //    {
-	// ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
-	// return (FALSE) ;
- //    }
+    if (!ok)
+    {
+    ERROR (CHOLMOD_TOO_LARGE, "problem too large") ;
+    return (FALSE) ;
+    }
 
     CHOLMOD(allocate_work) (n, w, 0, Common) ;
     if (Common->status < CHOLMOD_OK)

@@ -7,7 +7,6 @@ default: lib
 PKG_CPPFLAGS = -I../../AMD/Include -I../../AMD/Source \
         -I../../COLAMD/Include \
 	-I../Include -I../../SuiteSparse_config -DNPARTITION -DNPRINT
-
 #	 -I../../CCOLAMD \
 #        -I../../CAMD/Include -I../../CAMD/Source \
 #	-I../../Metis \
