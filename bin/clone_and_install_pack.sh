@@ -14,6 +14,8 @@ fi
 ls -altr
 tar czf Matrix_2.tar.gz ../Matrix
 
-
 ## Install 
 R CMD INSTALL Matrix_2.tar.gz
+
+## Install SparseM for test
+R -e "install.packages('SparseM')"
