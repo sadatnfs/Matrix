@@ -7,12 +7,10 @@ if [ ! -f ~/.R/Makevars ]; then
 fi
 
 
-## Clone
-# git clone -b develop https://github.com/sadatnfs/Matrix.git
-
 ## Tar it
 ls -altr
-tar czf Matrix_2.tar.gz ../Matrix
+cd ..
+tar czf Matrix_2.tar.gz Matrix
 
 ## Install 
 R CMD INSTALL Matrix_2.tar.gz

@@ -14,7 +14,7 @@ cat("\n\n")
 CC1 <- "\t$(CC) $(ALL_CPPFLAGS) $(ALL_CFLAGS) -I../Include"
 for (i in AMD)
      cat(sprintf("amd_i_%s.o: amd_%s.c $(INC)", i, i),
-         sprintf(paste(CC1, "-DDINT -c amd_%s.c -o $@"), i), sep="\n")
+         sprintf(paste(CC1, "-DDLONG -c amd_%s.c -o $@"), i), sep="\n")
 cat("\n")
 for (i in AMD)
      cat(sprintf("amd_l_%s.o: amd_%s.c $(INC)", i,i),
